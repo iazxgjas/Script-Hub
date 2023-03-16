@@ -1,0 +1,77 @@
+-- Load the Orion UI library
+local OrionUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxOrion/UI/main/library.lua"))()
+
+-- Define your script hub buttons
+local scripts = {
+    {name = "Script 1", url = "https://www.example.com/script1.lua"},
+    {name = "Script 2", url = "https://www.example.com/script2.lua"},
+    {name = "Script 3", url = "https://www.example.com/script3.lua"}
+}
+
+-- Define your reward settings for the key system
+local reward = {
+    type = "key unlocker",
+    endpoint = "https://example.com/api/redeem",
+    keyLength = 32
+}
+
+-- Define the key system settings
+local key = {
+    endpoint = "https://example.com/api/generate",
+    dailyReset = true,
+    keyLength = 32
+}
+
+-- Define the UI for the key entry screen
+local keyEntryUI = OrionUI.Frame({
+    Name = "KeyEntry",
+    Size = UDim2.new(0, 300, 0, 200),
+    Position = UDim2.new(0.5, -150, 0.5, -100),
+    BackgroundTransparency = 0.5,
+    BackgroundColor3 = Color3.new(0, 0, 0),
+    BorderColor3 = Color3.new(1, 1, 1),
+    Visible = true
+})
+
+local keyEntryLabel = OrionUI.Label({
+    Name = "KeyEntryLabel",
+    Size = UDim2.new(1, 0, 0.5, 0),
+    Position = UDim2.new(0, 0, 0, 0),
+    BackgroundTransparency = 1,
+    TextColor3 = Color3.new(1, 1, 1),
+    TextSize = 24,
+    Text = "Enter Key:",
+    Parent = keyEntryUI
+})
+
+local keyEntryBox = OrionUI.TextBox({
+    Name = "KeyEntryBox",
+    Size = UDim2.new(1, 0, 0.5, 0),
+    Position = UDim2.new(0, 0, 0.5, 0),
+    BackgroundTransparency = 0.5,
+    BackgroundColor3 = Color3.new(1, 1, 1),
+    BorderColor3 = Color3.new(0, 0, 0),
+    TextColor3 = Color3.new(0, 0, 0),
+    TextSize = 24,
+    ClearTextOnFocus = false,
+    PlaceholderText = "Enter Key Here",
+    Parent = keyEntryUI
+})
+
+local keyEntryButton = OrionUI.Button({
+    Name = "KeyEntryButton",
+    Size = UDim2.new(1, 0, 0.5, 0),
+    Position = UDim2.new(0, 0, 0.5, 0),
+    BackgroundColor3 = Color3.new(0, 0, 1),
+    TextColor3 = Color3.new(1, 1, 1),
+    TextSize = 24,
+    Text = "Enter Key",
+    Parent = keyEntryUI
+})
+
+-- Define the UI for the script hub
+local scriptHubUI = OrionUI.Frame({
+    Name = "ScriptHub",
+    Size = UDim2.new(0, 300, 0, 200),
+    Position = UDim2.new(0.5, -150, 0.5, -100),
+    Background
